@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/2657/PNG/256/contactos_icon_161077.png">
+    <title>CRUD</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+    <nav class="navbar navbar-dark">      
+      </nav>            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Crud con NodeJs y Express en deploy con Render, Lennard Idone</a>
+              </li>                            
+            </ul>            
+          </div>
+        </div>
+      </nav>
+      <% if (user) { %>
+      <div class="container mt-4" style="width: 60%;">          
+          <div class="card border-secondary">  
+            <center>
+              <h2>
+               Editar Contacto
+               <hr>
+             </h2>
+           </center>
+                <div class="card-body">
+                    <form action="/update" method="POST">
+                         <input id="id" name="id" value="<%= user.id %>" hidden>
+                        <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="<%= user.nombre  %>">                        
+                        </div>   
+                        <div class="mb-3">
+                          
+                          <label for="" class="form-label">Carrera</label>
+                          <select id="carrera" name="carrera" class="form-select" tabindex="2">
+                            <option <%= user.carrera=='Diseño y desarrollo de software' ? "selected" : '' %> value="Diseño y desarrollo de software">Diseño y desarrollo de software</option>
+                            <option <%= user.carrera=='Mecanica' ? "selected" : '' %> value="Mecanica">Mecanica</option> 
+                            <option <%= user.carrera=='Desarrollo de videojuegos' ? "selected" : '' %> value="Desarrollo de videojuegos">Desarrollo de videojuegos</option>
+                            <option <%= user.carrera=='Administración de redes' ? "selected" : '' %> value="Administración de redes">Administración de redes</option>                             
+                          </select>
+                        </div>    
+                        <center>
+                          <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                          <a href="/" class="btn btn-secondary">Cancelar</a>
+                          
+                        </center>                                                          
+                        
+                    </form>      
+                </div>
+            </div>     
+      </div>
+      <% } %>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
